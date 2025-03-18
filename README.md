@@ -1,2 +1,2 @@
-# Pilhas-e-Filas-em-Java
-Código de Pilhas e Filas em Java (Técnicas de Programação)
+# Pilhas e Filas em Java
+Explicação e códigos de Pilha Sequencial, Pilha Encadeada, Fila Sequencial e Fila Encadeada.
