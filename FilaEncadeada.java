@@ -1,36 +1,36 @@
 public class FilaEncadeada implements InterfaceFila {
-    private No inicio;
-    private No fim;
+    private No inicio; // nó cabeça
+    private No fim; // nó cauda
 
-    public FilaEncadeada() {
-        this.inicio = null;
+    public FilaEncadeada() { // construtor
+        this.inicio = null; // estão vazios
         this.fim = null;
     }
 
     @Override
-    public boolean enqueue(int dado) {
-        No novoNo = new No(dado);
-        if (this.inicio == null) {
-            this.inicio = novoNo;
+    public boolean enqueue(int dado) { // enfileirar
+        No novoNo = new No(dado); // criar novo nó com o valor recebido por parâmetro
+        if (this.inicio == null) { // verificar se a fila está vazia, poderia ser !isEmpty também
+            this.inicio = novoNo; // o novo nó será inserido tanto no início quanto no fim pois a fila está vazia
             this.fim = novoNo;
-        } else {
-            this.fim.definirProximo(novoNo);
-            this.fim = novoNo;
+        } else { // caso contrário
+            this.fim.definirProximo(novoNo); // o último nó atual vai apontar para o novo nó
+            this.fim = novoNo; // atualiza o fim da fila para o novo nó
         }
-        return true;
+        return true; // bem-sucedido
     }
 
     @Override
-    public int dequeue() {
-        if (!isEmpty()) {
-            int valorRemovido = this.inicio.obterDado();
-            this.inicio = this.inicio.obterProximo();
-            if (this.inicio == null) {
+    public int dequeue() { // desenfileirar
+        if (!isEmpty()) { // se a fila não estiver vazia
+            int valorRemovido = this.inicio.obterDado(); // auxiliar para guardar o início
+            this.inicio = this.inicio.obterProximo(); // atualiza para o próximo da fila
+            if (this.inicio == null) { // se após a operação o início ficar vazio, então o fim recebe null
                 this.fim = null;
             }
-            return valorRemovido;
+            return valorRemovido; // retorna o valor
         }
-        throw new IllegalStateException("A fila está vazia.");
+        throw new IllegalStateException("A fila está vazia."); // exceção
     }
 
     @Override
@@ -50,13 +50,13 @@ public class FilaEncadeada implements InterfaceFila {
     }
 
     @Override
-    public String toString() {
-        String elementos = new String();
-        No noAtual = this.inicio;
-        while (noAtual != null) {
-            elementos = elementos + noAtual.obterDado() + " ";
-            noAtual = noAtual.obterProximo();
+    public String toString() { // representação
+        String elementos = new String(); // armazenar elementos da fila na string vazia
+        No noAtual = this.inicio; // ponteiro para percorrer a fila, começando do início
+        while (noAtual != null) { // percorre enquanto houver nós
+            elementos = elementos + noAtual.obterDado() + " "; // adiciona o dado na string
+            noAtual = noAtual.obterProximo(); // aponta para o próximo nó
         }
-        return elementos;
+        return elementos; // retorna a string construída
     }
 }
