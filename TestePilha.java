@@ -2,7 +2,7 @@ public class TestePilha {
 	public static void main(String[] args) {
 		PilhaEncadeada pilhaE = new PilhaEncadeada(); // Usar InterfacePilha pilha1 = new PilhaSequencial();
 	    					              // usar InterfacePilha pilha2 = new PilhaEncadeada();
-	    					             // para garantir que ambas filas estão sendo implementadas corretamente
+	    					             // para garantir que ambas pilhas estão sendo implementadas corretamente
 
 		System.out.println("Pilha vazia? " + pilhaE.isEmpty());
 		pilhaE.push(10);
