@@ -1,6 +1,8 @@
 public class TesteFila {
     public static void main(String[] args) {
-        FilaSequencial filaS = new FilaSequencial();
+        FilaSequencial filaS = new FilaSequencial(); // Usar InterfaceFila fila1 = new FilaSequencial();
+	    					     // usar InterfaceFila fila1 = new FilaEncadeada();
+	    					     // para garantir que ambas filas estão sendo implementadas corretamente
         
         System.out.println("\nTestando Fila Sequencial:");
         filaS.enqueue(10);
